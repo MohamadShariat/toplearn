@@ -4,19 +4,30 @@ import Person from "./components/Person";
 import "./App.css";
 
 class App extends Component {
-  constructor(props) {
-    super(props);
 
-    this.state = {
+  //* ES7
+  state = {
+    persons: [
+      { firstname: "Mohammad", lastname: "Shariat", age: "35" },
+      { firstname: "Amir", lastname: "Shariat", age: "34" },
+      { firstname: "Ali", lastname: "Shariat", age: "30" },
+      { firstname: "Mostafa", lastname: "Shariat", age: "24" },
+      { firstname: "Mehrad", lastname: "Shariat", age: "10" },
+    ],
+  };
+
+  personchangeHandler = () => {
+    this.setState({
       persons: [
-        { firstname: "Mohammad", lastname: "Shariat", age: "35" },
-        { firstname: "Amir", lastname: "Shariat", age: "34" },
-        { firstname: "Ali", lastname: "Shariat", age: "30" },
-        { firstname: "Mostafa", lastname: "Shariat", age: "24" },
-        { firstname: "Mehrad", lastname: "Shariat", age: "10" },
+        { firstname: "Mo", lastname: "Shariat", age: "35" },
+        { firstname: "Am", lastname: "Shariat", age: "34" },
+        { firstname: "Al", lastname: "Shariat", age: "30" },
+        { firstname: "Mos", lastname: "Shariat", age: "24" },
+        { firstname: "Me", lastname: "Shariat", age: "10" },
       ],
-    };
-  }
+    });
+  };
+
   render() {
     const { persons } = this.state;
     return (
@@ -30,6 +41,8 @@ class App extends Component {
             age={person.age}
           />
         ))}
+        <hr />
+        <button onClick={this.personchangeHandler}>تغییر بده</button>
       </div>
     );
   }

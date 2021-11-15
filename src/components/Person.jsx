@@ -10,3 +10,4 @@ const Person = ({ firstname, lastname, age }) => {
 };
 
 export default Person;
+
